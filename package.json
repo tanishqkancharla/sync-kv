@@ -1,0 +1,37 @@
+{
+	"name": "@tk/npm-boilerplate",
+	"version": "0.0.1",
+	"author": "Tanishq Kancharla <tanishqkancharla3@gmail.com>",
+	"description": "A boilerplate for typescript npm packages",
+	"keywords": [],
+	"license": "MIT",
+	"source": "./src/index.ts",
+	"module": "./dist/index.js",
+	"main": "./dist/index.cjs",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist",
+		"src"
+	],
+	"bin": {
+		"@tk/npm-boilerplate": "./scripts/setupBoilerplate.ts"
+	},
+	"repository": {
+		"url": "https://github.com/tanishqkancharla/npm-ts-boilerplate"
+	},
+	"scripts": {
+		"build": "tsx scripts/build.ts",
+		"check": "tsc --noEmit && api-extractor run --local --verbose",
+		"test": "vitest",
+		"release": "npm run build; npm publish",
+		"bundlesize": "esbuild ./dist/index.js --minify --outfile=bundled; rm bundled"
+	},
+	"devDependencies": {
+		"@microsoft/api-extractor": "^7.34.0",
+		"ansi-colors": "^4.1.3",
+		"esbuild": "^0.17.4",
+		"tsx": "^3.11.0",
+		"typescript": "^4.6.4",
+		"vitest": "^0.28.2"
+	}
+}
